@@ -2,7 +2,15 @@ require("dotenv").config();
 const { ApolloServer } = require("apollo-server");
 const typeDefs = require("./schema");
 
-const server = new ApolloServer({ typeDefs });
+const mocks = {
+  // define your mock properties here
+  SpaceCat: () => ({
+    id: () => "spacecat_01",
+    title: () => "spacecat pioneer",
+  }),
+};
+
+const server = new ApolloServer({ typeDefs, mocks });
 
 server.listen().then(() => {
   console.log(`
