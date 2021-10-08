@@ -1,4 +1,4 @@
-const resolver = {
+const resolvers = {
   Query: {
     tracksForHome: (_, __, { dataSources }) => {
       return dataSources.trackAPI.getTracksForHome();
@@ -11,4 +11,4 @@ const resolver = {
   },
 };
 
-module.exports = resolver;
+module.exports = resolvers;
