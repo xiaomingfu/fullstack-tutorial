@@ -7,6 +7,17 @@ const resolvers = {
       return dataSources.trackAPI.getTrack(id);
     },
   },
+  Mutation: {
+    incrementTrackViews: async (_, { id }, { dataSources }) => {
+      const track = await dataSources.trackAPI.getTrack(id);
+      return {
+        code: 200,
+        success: true,
+        message: `successfully increment number of views for track ${id}`,
+        track: track,
+      };
+    },
+  },
   Track: {
     author: ({ authorId }, _, { dataSources }) => {
       return dataSources.trackAPI.getAuthor(authorId);
