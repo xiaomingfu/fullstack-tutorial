@@ -6,6 +6,9 @@ const resolvers = {
     track: (_, { id }, { dataSources }) => {
       return dataSources.trackAPI.getTrack(id);
     },
+    module: (_, { id }, { dataSources }) => {
+      return dataSources.trackAPI.getModule(id);
+    },
   },
   Mutation: {
     incrementTrackViews: async (_, { id }, { dataSources }) => {
@@ -28,8 +31,8 @@ const resolvers = {
     },
   },
   Track: {
-    author: ({ authorId }, _, { dataSources }) => {
-      return dataSources.trackAPI.getAuthor(authorId);
+    author: ({ id }, _, { dataSources }) => {
+      return dataSources.trackAPI.getAuthor(id);
     },
     modules: ({ id }, _, { dataSources }) => {
       return dataSources.trackAPI.getTrackModules(id);

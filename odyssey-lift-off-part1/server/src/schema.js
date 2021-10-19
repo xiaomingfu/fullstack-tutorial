@@ -5,6 +5,7 @@ const typeDefs = gql`
     "Get tracks array for homepage grid"
     tracksForHome: [Track!]
     track(id: ID!): Track
+    module(id: ID!): Module!
   }
   type Mutation {
     incrementTrackViews(id: ID!): IncrementTrackViewsResponse!
@@ -45,6 +46,8 @@ const typeDefs = gql`
     id: ID!
     title: String!
     length: Int
+    videoUrl: String
+    content: String
   }
 `;
 
